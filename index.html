@@ -7,16 +7,29 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header Navigation -->
+    <!-- 
+    ========================================
+    HEADER NAVIGATION
+    ========================================
+    Sticky header that stays at the top when scrolling.
+    Contains logo, navigation links, and theme toggle button.
+    -->
     <header>
         <div class="container">
+            <!-- Logo/Brand name on the left -->
             <h1 class="logo">Portfolio</h1>
+            
+            <!-- Navigation menu on the right -->
             <nav>
+                <!-- Navigation links - data-page attribute tells JS which page to show -->
                 <a href="#home" class="nav-link active" data-page="home">Home</a>
                 <a href="#projects" class="nav-link" data-page="projects">Projects</a>
                 <a href="#journal" class="nav-link" data-page="journal">Journal</a>
                 <a href="#about" class="nav-link" data-page="about">About</a>
+                
+                <!-- Theme toggle button - switches between light and dark mode -->
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <!-- Sun icon - visible in light mode -->
                     <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="5"></circle>
                         <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -28,6 +41,7 @@
                         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
+                    <!-- Moon icon - visible in dark mode -->
                     <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
@@ -36,19 +50,41 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- 
+    ========================================
+    MAIN CONTENT CONTAINER
+    ========================================
+    All page sections are contained here.
+    Only one section is visible at a time (controlled by JS).
+    -->
     <main class="container">
-        <!-- Home Page -->
+        
+        <!-- 
+        ========================================
+        HOME PAGE
+        ========================================
+        Landing page with hero section, stats, and featured projects.
+        The "active" class makes this page visible by default.
+        -->
         <section id="home-page" class="page active">
+            
+            <!-- Hero section - main introduction at the top -->
             <div class="hero">
                 <h1 class="hero-title">Electrical Engineer & Developer</h1>
                 <p class="hero-subtitle">Building innovative solutions at the intersection of hardware and software</p>
+                
+                <!-- Call-to-action buttons -->
                 <div class="hero-buttons">
+                    <!-- data-navigate attribute tells JS which page to navigate to -->
                     <button class="btn btn-primary" data-navigate="projects">View Projects</button>
                     <button class="btn btn-secondary" data-navigate="about">About Me</button>
                 </div>
             </div>
 
+            <!-- 
+            Stats section - displays key metrics
+            Uses CSS Grid to automatically arrange cards responsively
+            -->
             <div class="stats">
                 <div class="stat-card">
                     <div class="stat-number">15+</div>
@@ -64,20 +100,36 @@
                 </div>
             </div>
 
+            <!-- 
+            Featured projects section
+            This container is populated by JavaScript (see script.js)
+            -->
             <div class="featured-section">
                 <h2>Featured Projects</h2>
+                <!-- JS will inject project cards here -->
                 <div class="projects-grid" id="featured-projects"></div>
             </div>
         </section>
 
-        <!-- Projects Page -->
+        <!-- 
+        ========================================
+        PROJECTS PAGE
+        ========================================
+        Displays all projects in a grid layout.
+        Hidden by default (no "active" class).
+        -->
         <section id="projects-page" class="page">
+            
+            <!-- Page header with title and action button -->
             <div class="page-header">
                 <div>
                     <h1 class="page-title">Projects</h1>
                     <p class="page-subtitle">A collection of my engineering work spanning hardware, software, and everything in between.</p>
                 </div>
+                
+                <!-- Button to add new project (you can link this to a form or GitHub) -->
                 <button class="btn btn-primary">
+                    <!-- Plus icon SVG -->
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="12" y1="5" x2="12" y2="19"></line>
                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -85,16 +137,28 @@
                     New Project
                 </button>
             </div>
+            
+            <!-- Grid container for all projects - populated by JS -->
             <div class="projects-grid" id="all-projects"></div>
         </section>
 
-        <!-- Journal Page -->
+        <!-- 
+        ========================================
+        JOURNAL PAGE
+        ========================================
+        Blog-style entries documenting your work and learning process.
+        Great for showing your thought process to employers.
+        -->
         <section id="journal-page" class="page">
+            
+            <!-- Page header similar to projects page -->
             <div class="page-header">
                 <div>
                     <h1 class="page-title">Journal</h1>
                     <p class="page-subtitle">Progress updates, technical insights, and lessons learned from my projects.</p>
                 </div>
+                
+                <!-- Button to add new journal entry -->
                 <button class="btn btn-primary">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -103,17 +167,28 @@
                     New Entry
                 </button>
             </div>
+            
+            <!-- Container for journal entries - populated by JS -->
             <div class="journal-entries" id="journal-entries"></div>
         </section>
 
-        <!-- About Page -->
+        <!-- 
+        ========================================
+        ABOUT PAGE
+        ========================================
+        Your professional information, education, skills, and contact details.
+        All content is static HTML (not generated by JS).
+        -->
         <section id="about-page" class="page">
             <h1 class="page-title">About Me</h1>
+            
             <div class="about-content">
+                <!-- Introduction paragraph -->
                 <p class="about-intro">
                     I'm an electrical engineer passionate about creating innovative solutions that bridge hardware and software.
                 </p>
                 
+                <!-- Education section -->
                 <h2>Education</h2>
                 <p class="text-muted">
                     B.S. in Electrical Engineering<br>
@@ -121,6 +196,7 @@
                     GPA: 3.8/4.0
                 </p>
 
+                <!-- Skills section with grid layout for organization -->
                 <h2>Skills</h2>
                 <div class="skills-grid">
                     <div>
@@ -133,6 +209,7 @@
                     </div>
                 </div>
 
+                <!-- Contact information -->
                 <h2>Contact</h2>
                 <p class="text-muted">
                     Email: your.email@example.com<br>
@@ -143,6 +220,16 @@
         </section>
     </main>
 
+    <!-- 
+    ========================================
+    JAVASCRIPT
+    ========================================
+    Load the JavaScript file that handles:
+    - Page navigation
+    - Theme switching
+    - Dynamic content generation
+    Loaded at the end so HTML loads first
+    -->
     <script src="script.js"></script>
 </body>
 </html>
