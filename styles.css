@@ -178,8 +178,9 @@ main {
   background: var(--border-color);
 }
 .divider-label span {
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text-secondary);
   white-space: nowrap;
@@ -188,7 +189,7 @@ main {
 .link-cards {
   display: flex;
   gap: 16px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
 }
 
@@ -215,15 +216,23 @@ main {
   border-radius: inherit;
   opacity: 0;
   transition: opacity 0.3s;
+  z-index: 0;
+  pointer-events: none;
 }
 
-.link-card.linkedin { --accent-card: #0a66c2; --glow: rgba(10,102,194,0.12); }
-.link-card.resume   { --accent-card: #2563eb; --glow: rgba(37,99,235,0.12); }
-.link-card.github   { --accent-card: #7c3aed; --glow: rgba(124,58,237,0.12); }
+/* All direct children sit above the tint layer */
+.link-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.link-card.linkedin { --accent-card: #0a66c2; --glow: rgba(10,102,194,0.15); }
+.link-card.resume   { --accent-card: #2563eb; --glow: rgba(37,99,235,0.15); }
+.link-card.github   { --accent-card: #7c3aed; --glow: rgba(124,58,237,0.15); }
 
 .link-card:hover {
   border-color: var(--accent-card);
-  box-shadow: 0 0 20px var(--glow), 0 8px 24px rgba(0,0,0,0.1);
+  box-shadow: 0 0 24px var(--glow), 0 8px 24px rgba(0,0,0,0.1);
   transform: translateY(-3px);
 }
 .link-card:hover::before { opacity: 1; background: var(--glow); }
@@ -241,8 +250,8 @@ main {
 }
 .link-card:hover .card-icon { background: var(--accent-card); }
 .card-icon svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   fill: var(--text-secondary);
   transition: fill 0.2s;
 }
@@ -250,8 +259,9 @@ main {
 
 .card-text { display: flex; flex-direction: column; gap: 2px; }
 .card-label {
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--text-secondary);
   transition: color 0.2s;
