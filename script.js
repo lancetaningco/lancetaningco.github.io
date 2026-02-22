@@ -1,9 +1,7 @@
 /* 
 ========================================
-THEME MANAGEMENT SYSTEM
+THEME MANAGEMENT SYSTEM - Handles switching between light and dark mode. Saves preference to browser's localStorage
 ========================================
-Handles switching between light and dark mode
-Saves preference to browser's localStorage
 */
 
 // Get references to DOM elements we'll need
@@ -34,10 +32,8 @@ themeToggle.addEventListener('click', () => {
 
 /* 
 ========================================
-PAGE NAVIGATION SYSTEM
+PAGE NAVIGATION SYSTEM - Shows/hides different page sections. Updates URL hash and navigation highlighting
 ========================================
-Shows/hides different page sections
-Updates URL hash and navigation highlighting
 */
 
 // Get all page sections and navigation links
@@ -109,10 +105,8 @@ window.addEventListener('load', () => {
 
 /* 
 ========================================
-PROJECT DATA
+PROJECT DATA - Array of objects containing all project information. This is where you'll add your actual projects.
 ========================================
-Array of objects containing all project information
-This is where you'll add your actual projects
 */
 const projects = [
     {
@@ -144,9 +138,8 @@ const projects = [
 
 /* 
 ========================================
-JOURNAL DATA
+JOURNAL DATA - Array of journal entries for documentation.
 ========================================
-Array of journal entries for documentation
 */
 const journalEntries = [
     {
@@ -170,10 +163,8 @@ const journalEntries = [
 
 /* 
 ========================================
-RENDER PROJECTS
+RENDER PROJECTS - Function that generates HTML for project cards and inserts them into the page
 ========================================
-Function that generates HTML for project cards
-and inserts them into the page
 */
 function renderProjects() {
     // Get containers where we'll insert project cards
@@ -234,10 +225,8 @@ function createProjectCard(project) {
 
 /* 
 ========================================
-RENDER JOURNAL ENTRIES
+RENDER JOURNAL ENTRIES - Function that generates HTML for journal cards. Similar structure to project rendering
 ========================================
-Function that generates HTML for journal cards
-Similar structure to project rendering
 */
 function renderJournal() {
     const journalContainer = document.getElementById('journal-entries');
