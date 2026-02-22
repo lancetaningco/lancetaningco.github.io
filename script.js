@@ -117,7 +117,7 @@ This is where you'll add your actual projects
 const projects = [
     {
         id: 1,
-        title: "Robotic Arm",
+        title: "Digital Altimeter",
         description: "6-axis robotic arm with inverse kinematics and computer vision for pick-and-place operations.",
         image: "https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=800&h=600&fit=crop",
         tags: ["Arduino", "Python", "OpenCV", "C++"],
@@ -125,7 +125,7 @@ const projects = [
     },
     {
         id: 2,
-        title: "Analytics Dashboard",
+        title: "Sleep Prevention Alarm System",
         description: "Real-time data visualization platform with interactive charts and customizable widgets for business intelligence.",
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
         tags: ["React", "TypeScript", "D3.js", "Node.js", "PostgreSQL"],
@@ -133,10 +133,10 @@ const projects = [
     },
     {
         id: 3,
-        title: "Smart Home Controller",
-        description: "IoT platform for controlling home automation devices with voice commands and scheduling capabilities.",
+        title: "Traffic Light Simulation",
+        description: "Traffic light project done in my Microcontrollers Lab (ECE 3301L).",
         image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&h=600&fit=crop",
-        tags: ["Node.js", "MQTT", "React Native", "AWS IoT"],
+        tags: ["MPLAB", "PickIt5", "Microcontrollers", "AWS IoT"],
         link: "#"
     }
     // ADD MORE PROJECTS HERE following the same structure
@@ -151,18 +151,18 @@ Array of journal entries for documentation
 const journalEntries = [
     {
         id: 1,
-        date: "November 9, 2025",
-        title: "Building the Robot Arm - Week 1",
-        category: "Robotic Arm",
-        preview: "Started working on the inverse kinematics algorithm for the robot arm. The math is more complex than I initially thought, but making good progress with forward kinematics first.",
+        date: "January 5, 2026",
+        title: "Creating a portfolio website using GitHub Pages",
+        category: "Portfolio Website",
+        preview: "Finally have a cool space to showcase my work, YAY!.",
         link: "#"  // Link to full blog post or detailed GitHub markdown
     },
     {
         id: 2,
-        date: "October 1, 2025",
-        title: "Optimizing D3.js Performance",
-        category: "Analytics Dashboard",
-        preview: "Lessons learned from rendering thousands of data points in real-time. Virtual scrolling and data aggregation were key to achieving 60fps.",
+        date: "January 8, 2026",
+        title: "Building the Altimeter - Week 1",
+        category: "Digital Altimeter",
+        preview: "Concieved the idea for digital altimeter project. Goal: Build a functional and accurate digital altimeter using a biometric pressure sensor, a microcontroller, and an LCD display.",
         link: "#"
     }
     // ADD MORE JOURNAL ENTRIES HERE
