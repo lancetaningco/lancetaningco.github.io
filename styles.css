@@ -227,7 +227,7 @@ main {
 }
 
 .link-card.linkedin { --accent-card: #0a66c2; --glow: rgba(10,102,194,0.15); }
-.link-card.resume   { --accent-card: #2563eb; --glow: rgba(37,99,235,0.15); }
+.link-card.resume   { --accent-card: #25eb67; --glow: rgba(37,99,235,0.15); }
 .link-card.github   { --accent-card: #7c3aed; --glow: rgba(124,58,237,0.15); }
 
 .link-card:hover {
