@@ -119,26 +119,29 @@ PROJECT DATA - Array of objects containing all project information. This is wher
 const projects = [
     {
         id: 1,
+        slug: "project-1",
         title: "Digital Altimeter",
         description: "6-axis robotic arm with inverse kinematics and computer vision for pick-and-place operations.",
         image: "https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=800&h=600&fit=crop",
-        tags: ["Arduino", "Python", "OpenCV", "C++"],
-        link: "#"  // Replace with actual GitHub repo link
+        tags: ["Arduino", "Python", "BMP280 Sensor"],
+        link: "#"  // optional external link; can be removed if unused
     },
     {
         id: 2,
+        slug: "project-2",
         title: "Sleep Prevention Alarm System",
         description: "Real-time data visualization platform with interactive charts and customizable widgets for business intelligence.",
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-        tags: ["React", "TypeScript", "D3.js", "Node.js", "PostgreSQL"],
+        tags: ["Arduino", "Python", "OpenCV"],
         link: "#"
     },
     {
         id: 3,
+        slug: "project-3",
         title: "Traffic Light Simulation",
         description: "Traffic light project done in my Microcontrollers Lab (ECE 3301L).",
         image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&h=600&fit=crop",
-        tags: ["MPLAB", "PickIt5", "Microcontrollers", "AWS IoT"],
+        tags: ["MPLAB", "PickIt5", "Microcontrollers"],
         link: "#"
     }
     // ADD MORE PROJECTS HERE following the same structure
@@ -217,8 +220,8 @@ function createProjectCard(project) {
                     ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
                 
-                <!-- View Project button navigates to detail page -->
-                <a href="project.html?id=${project.id}" class="project-link">
+                <!-- View Project button navigates to individual project file -->
+                <a href="${project.slug}.html" class="project-link">
                     View Project
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>

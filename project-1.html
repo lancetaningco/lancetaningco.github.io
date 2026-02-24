@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Altimeter | Lance Taningco</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Lance Taningco's Portfolio</h1>
+            <nav>
+                <a href="index.html#home" class="nav-link" data-page="home">Home</a>
+                <a href="index.html#projects" class="nav-link" data-page="projects">Projects</a>
+                <a href="index.html#journal" class="nav-link" data-page="journal">Journal</a>
+                <a href="index.html#about" class="nav-link" data-page="about">About</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="page active">
+            <div class="project-detail-card">
+                <img src="https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=800&h=600&fit=crop" alt="Digital Altimeter" class="project-image">
+                <div class="project-content">
+                    <h1 class="project-title">Digital Altimeter</h1>
+                    <p class="project-description">6-axis robotic arm with inverse kinematics and computer vision for pick-and-place operations.</p>
+                    <div class="project-tags">
+                        <span class="tag">Arduino</span><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">C++</span>
+                    </div>
+                    <!-- optional external link -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
