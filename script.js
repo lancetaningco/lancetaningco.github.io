@@ -101,6 +101,14 @@ window.addEventListener('load', () => {
     showPage(hash);
     renderProjects();  // Generate project cards
     renderJournal();   // Generate journal entries
+
+    // if this is a detail page, run the appropriate renderer
+    const pathname = window.location.pathname;
+    if (pathname.endsWith('project.html')) {
+        renderProjectDetail();
+    } else if (pathname.endsWith('journal.html')) {
+        renderJournalDetail();
+    }
 });
 
 /* 
@@ -209,8 +217,8 @@ function createProjectCard(project) {
                     ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
                 
-                <!-- View Project button with external link icon -->
-                <a href="${project.link}" class="project-link">
+                <!-- View Project button navigates to detail page -->
+                <a href="project.html?id=${project.id}" class="project-link">
                     View Project
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -267,9 +275,82 @@ function createJournalCard(entry) {
             <p class="journal-preview">${entry.preview}</p>
             
             <!-- Read more link -->
-            <a href="${entry.link}" class="read-more">
+            <!-- link to journal detail page -->
+            <a href="journal.html?id=${entry.id}" class="read-more">
                 Read more →
             </a>
+        </div>
+    `;
+}
+
+/* 
+========================================
+DETAIL PAGE HELPERS
+========================================
+*/
+
+/**
+ * Render the contents of a single project inside project.html
+ */
+function renderProjectDetail() {
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get('id'));
+    const project = projects.find(p => p.id === id);
+    const container = document.getElementById('project-detail');
+    if (!container) return;
+
+    if (!project) {
+        container.innerHTML = '<p>Project not found.</p>';
+        return;
+    }
+
+    container.innerHTML = `
+        <div class="project-detail-card">
+            <img src="${project.image}" alt="${project.title}" class="project-image">
+            <div class="project-content">
+                <h1 class="project-title">${project.title}</h1>
+                <p class="project-description">${project.description}</p>
+                <div class="project-tags">
+                    ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                </div>
+                <a href="${project.link}" class="project-link">Go to repository</a>
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Render a single journal entry inside journal.html
+ */
+function renderJournalDetail() {
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get('id'));
+    const entry = journalEntries.find(e => e.id === id);
+    const container = document.getElementById('journal-detail');
+    if (!container) return;
+
+    if (!entry) {
+        container.innerHTML = '<p>Entry not found.</p>';
+        return;
+    }
+
+    container.innerHTML = `
+        <div class="journal-detail-card">
+            <div class="journal-meta">
+                <div class="journal-date">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    ${entry.date}
+                </div>
+                <span class="journal-category">${entry.category}</span>
+            </div>
+            <h1 class="journal-title">${entry.title}</h1>
+            <p class="journal-preview">${entry.preview}</p>
+            <a href="${entry.link}" class="read-more">Source/More details →</a>
         </div>
     `;
 }
