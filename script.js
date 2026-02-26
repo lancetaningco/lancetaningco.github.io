@@ -124,7 +124,8 @@ const projects = [
         description: "6-axis robotic arm with inverse kinematics and computer vision for pick-and-place operations.",
         image: "https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=800&h=600&fit=crop",
         tags: ["Arduino", "Python", "BMP280 Sensor"],
-        link: "#"  // optional external link; can be removed if unused
+        link: "#",  // optional external link; can be removed if unused
+        page: "projects/digital-altimeter.html"
     },
     {
         id: 2,
@@ -133,7 +134,8 @@ const projects = [
         description: "Real-time data visualization platform with interactive charts and customizable widgets for business intelligence.",
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
         tags: ["Arduino", "Python", "OpenCV"],
-        link: "#"
+        link: "#",
+        page: "projects/sleep-alarm-system.html"
     },
     {
         id: 3,
@@ -142,7 +144,8 @@ const projects = [
         description: "Traffic light project done in my Microcontrollers Lab (ECE 3301L).",
         image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&h=600&fit=crop",
         tags: ["MPLAB", "PickIt5", "Microcontrollers"],
-        link: "#"
+        link: "#",
+        page: "projects/project-3.html"
     }
     // ADD MORE PROJECTS HERE following the same structure
 ];
@@ -208,6 +211,9 @@ function renderProjects() {
  */
 function createProjectCard(project) {
     // Template literal (backticks) allows multi-line strings and ${} for variables
+    // determine link target: use explicit page path if provided, otherwise default to slug-relative
+    const href = project.page ? project.page : `${project.slug}.html`;
+
     return `
         <div class="project-card">
             <img src="${project.image}" alt="${project.title}" class="project-image">
@@ -221,7 +227,7 @@ function createProjectCard(project) {
                 </div>
                 
                 <!-- View Project button navigates to individual project file -->
-                <a href="${project.slug}.html" class="project-link">
+                <a href="${href}" class="project-link">
                     View Project
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
