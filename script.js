@@ -119,7 +119,7 @@ PROJECT DATA - Array of objects containing all project information. This is wher
 const projects = [
     {
         id: 1,
-        slug: "project-1",
+        slug: "digital-altimeter",
         title: "Digital Altimeter",
         description: "6-axis robotic arm with inverse kinematics and computer vision for pick-and-place operations.",
         image: "https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=800&h=600&fit=crop",
@@ -128,7 +128,7 @@ const projects = [
     },
     {
         id: 2,
-        slug: "project-2",
+        slug: "sleep-alarm-system",
         title: "Sleep Prevention Alarm System",
         description: "Real-time data visualization platform with interactive charts and customizable widgets for business intelligence.",
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",

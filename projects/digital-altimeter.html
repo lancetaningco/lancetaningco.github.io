@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Altimeter | Lance Taningco</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Lance Taningco's Portfolio</h1>
+            <nav>
+                <a href="index.html#home" class="nav-link" data-page="home">Home</a>
+                <a href="index.html#projects" class="nav-link" data-page="projects">Projects</a>
+                <a href="index.html#journal" class="nav-link" data-page="journal">Journal</a>
+                <a href="index.html#about" class="nav-link" data-page="about">About</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- blog post container - easy to add new sections, images, etc -->
+        <article class="blog-post">
+            <!-- title + meta information -->
+            <header>
+                <h1>Digital Altimeter</h1>
+                <p class="post-meta">Posted February 25 2026&nbsp;| Category: Digital Altimeter</p>
+            </header>
+
+            <!-- hero image for the project -->
+            <img src="https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=1200&h=800&fit=crop" alt="Digital Altimeter prototype" class="blog-image">
+
+            <section>
+                <h2>Overview</h2>
+                <p>The digital altimeter is a compact device that measures altitude by monitoring barometric pressure. Built around an Arduino-compatible microcontroller and a BMP280 pressure sensor, it displays real‑time height readings on a small LCD screen. This page documents my thought process, hardware choices, and lessons learned while developing the project.</p>
+            </section>
+
+            <section>
+                <h2>Motivation & Goals</h2>
+                <p>I wanted to create a simple, self‑contained altimeter for hiking and education. Key objectives included:</p>
+                <ul>
+                    <li>Accurate altitude calculation using a barometric sensor</li>
+                    <li>Low‑power operation on a rechargeable battery</li>
+                    <li>Clean, readable display with minimal components</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Hardware & Circuit</h2>
+                <p>The heart of the system is the <strong>BMP280 atmospheric pressure sensor</strong>, which communicates with the microcontroller over I²C. I chose an <em>Arduino Nano</em> for its small form factor. The sensor and display are wired according to the schematic below.</p>
+                <img src="./images/altimeter-schematic.png" alt="Circuit schematic" class="blog-image">
+                <p>Wiring notes:</p>
+                <ul>
+                    <li>VCC and GND from the Nano power the sensor and the 16×2 LCD module.</li>
+                    <li>SDA/SCL lines shared between the sensor and a real‑time clock (future expansion).</li>
+                    <li>A push‑button on digital pin 2 resets the altitude baseline.</li>
+                </ul>
+            </section>
+
+            <!-- more sections can be added below by duplicating the pattern -->
+
+            <section>
+                <h2>Software</h2>
+                <p>The sketch reads raw temperature and pressure values, applies the compensation algorithms from the sensor datasheet, and converts pressure to altitude using the standard barometric formula. A simple menu allows zeroing the altitude and toggling between meters and feet.</p>
+                <!-- code snippets could be inserted using <pre><code> blocks -->
+            </section>
+
+            <section>
+                <h2>Results & Future Work</h2>
+                <p>After a week of testing this device outdoors, readings remained within 5 m of a handheld GPS altimeter. Future improvements include adding Bluetooth telemetry and logging, as well as housing the electronics in a 3D‑printed enclosure.</p>
+            </section>
+
+            <footer>
+                <p><a href="index.html#projects" class="read-more">← Back to projects</a></p>
+            </footer>
+        </article>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
