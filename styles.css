@@ -1,42 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 
 :root,
 [data-theme="dark"] {
-    --bg-primary: #05070d;
-    --bg-secondary: #0c1220;
-    --bg-tertiary: #121b2e;
-    --text-primary: #e9f1fb;
-    --text-secondary: #7e8ca3;
-    --border-color: #1e2a40;
-    --accent: #00e5ff;
-    --accent-2: #7c5cff;
-    --accent-hover: #4df0ff;
-    --on-accent: #04121a;
+    --bg-primary: #050a07;
+    --bg-secondary: #0c1712;
+    --bg-tertiary: #13221a;
+    --text-primary: #e8f5ee;
+    --text-secondary: #7e9c8c;
+    --border-color: #1c3327;
+    --accent: #39ff88;
+    --accent-2: #14b8a6;
+    --accent-hover: #6dffab;
+    --on-accent: #04170e;
     --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 20px 40px -12px rgba(0, 0, 0, 0.55);
-    --glow-accent: 0 0 24px rgba(0, 229, 255, 0.25);
-    --grid-line: rgba(124, 92, 255, 0.07);
-    --glow-1: rgba(0, 229, 255, 0.10);
-    --glow-2: rgba(124, 92, 255, 0.12);
+    --glow-accent: 0 0 24px rgba(57, 255, 136, 0.25);
+    --grid-line: rgba(57, 255, 136, 0.08);
+    --glow-1: rgba(57, 255, 136, 0.09);
+    --glow-2: rgba(20, 184, 166, 0.10);
 }
 
 [data-theme="light"] {
-    --bg-primary: #f4f7fb;
+    --bg-primary: #f4f8f6;
     --bg-secondary: #ffffff;
-    --bg-tertiary: #eef2f8;
-    --text-primary: #0b1220;
-    --text-secondary: #57657c;
-    --border-color: #dbe2ee;
-    --accent: #0891b2;
-    --accent-2: #6d28d9;
-    --accent-hover: #0aa5c4;
-    --on-accent: #04121a;
+    --bg-tertiary: #edf5f0;
+    --text-primary: #0b1712;
+    --text-secondary: #56695f;
+    --border-color: #d8e6de;
+    --accent: #0d9c58;
+    --accent-2: #0f8a7c;
+    --accent-hover: #0fb567;
+    --on-accent: #04170e;
     --shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.08);
     --shadow-lg: 0 20px 40px -12px rgba(15, 23, 42, 0.14);
-    --glow-accent: 0 0 24px rgba(8, 145, 178, 0.15);
-    --grid-line: rgba(109, 40, 217, 0.05);
-    --glow-1: rgba(8, 145, 178, 0.07);
-    --glow-2: rgba(109, 40, 217, 0.07);
+    --glow-accent: 0 0 24px rgba(13, 156, 88, 0.15);
+    --grid-line: rgba(13, 156, 88, 0.06);
+    --glow-1: rgba(13, 156, 88, 0.06);
+    --glow-2: rgba(15, 138, 124, 0.06);
 }
 
 * {
@@ -50,7 +50,7 @@ html {
 }
 
 body {
-    --font-display: 'Orbitron', sans-serif;
+    --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'DM Sans', sans-serif;
     --font-mono: 'Space Mono', monospace;
 
@@ -185,7 +185,7 @@ nav {
 
 /* Main Content */
 main {
-    padding: 48px 24px 96px;
+    padding: 48px 24px 64px;
 }
 
 .page {
@@ -227,7 +227,7 @@ main {
 .hero-title {
     font-family: var(--font-display);
     font-size: 52px;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: 0.01em;
     margin-bottom: 18px;
     background: linear-gradient(120deg, var(--text-primary) 30%, var(--accent) 65%, var(--accent-2) 100%);
@@ -627,7 +627,7 @@ main {
 .page-title {
     font-family: var(--font-display);
     font-size: 42px;
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: 14px;
 }
 
@@ -688,9 +688,21 @@ main {
 
 /* Footer */
 footer {
-    border-top: 1px solid var(--border-color);
-    padding: 28px 24px;
+    position: relative;
+    margin-top: 56px;
+    padding: 48px 24px 32px;
     text-align: center;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(70%, 640px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
 }
 
 .footer-text {
