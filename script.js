@@ -42,8 +42,12 @@ function showPage(pageId) {
 
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
+        const pageId = link.getAttribute('data-page');
+        // Only hijack the click if that section actually exists on this page
+        // (e.g. on projects.html these links should just navigate to index.html normally).
+        if (!document.getElementById(`${pageId}-page`)) return;
         e.preventDefault();
-        showPage(link.getAttribute('data-page'));
+        showPage(pageId);
     });
 });
 
@@ -54,7 +58,10 @@ document.querySelectorAll('[data-navigate]').forEach(el => {
     });
 });
 
-if (pages.length) {
+// Only run section show/hide on pages with multiple sections (index.html).
+// Standalone pages (e.g. projects.html) have a single already-active section
+// and shouldn't have it touched.
+if (pages.length > 1) {
     const hash = window.location.hash.slice(1) || 'home';
     showPage(hash);
 }
