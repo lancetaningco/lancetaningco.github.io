@@ -422,8 +422,25 @@ main {
 /* Contact page */
 .contact-wrap {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
     margin-bottom: 48px;
+}
+
+.contact-email-text {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-email-text:hover {
+    color: var(--accent);
+    border-color: var(--accent);
 }
 
 /* Buttons */
