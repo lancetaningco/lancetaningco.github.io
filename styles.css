@@ -21,22 +21,22 @@
 }
 
 [data-theme="light"] {
-    --bg-primary: #f4f8f6;
+    --bg-primary: #f4f7fb;
     --bg-secondary: #ffffff;
-    --bg-tertiary: #edf5f0;
-    --text-primary: #0b1712;
-    --text-secondary: #56695f;
-    --border-color: #d8e6de;
+    --bg-tertiary: #edf2f8;
+    --text-primary: #0b1420;
+    --text-secondary: #55657a;
+    --border-color: #d9e2ee;
     --accent: #0d9c58;
-    --accent-2: #0f8a7c;
+    --accent-2: #2563eb;
     --accent-hover: #0fb567;
     --on-accent: #04170e;
     --shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.08);
     --shadow-lg: 0 20px 40px -12px rgba(15, 23, 42, 0.14);
     --glow-accent: 0 0 24px rgba(13, 156, 88, 0.15);
-    --grid-line: rgba(13, 156, 88, 0.06);
-    --glow-1: rgba(13, 156, 88, 0.06);
-    --glow-2: rgba(15, 138, 124, 0.06);
+    --grid-line: rgba(37, 99, 235, 0.06);
+    --glow-1: rgba(13, 156, 88, 0.07);
+    --glow-2: rgba(37, 99, 235, 0.10);
 }
 
 * {
@@ -278,21 +278,21 @@ main {
     transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
+.quick-link.linkedin { --accent-card: #0a66c2; --glow: rgba(10, 102, 194, 0.18); }
+.quick-link.resume   { --accent-card: #1fc557; --glow: rgba(37, 235, 100, 0.18); }
+.quick-link.github   { --accent-card: #a78bfa; --glow: rgba(167, 139, 250, 0.2); }
+
 .quick-link svg {
     width: 18px;
     height: 18px;
-    fill: var(--text-secondary);
+    fill: var(--accent-card, var(--text-secondary));
     transition: fill 0.2s ease;
 }
 
 .quick-link:hover {
-    border-color: var(--accent);
-    box-shadow: var(--glow-accent);
+    border-color: var(--accent-card, var(--accent));
+    box-shadow: 0 0 20px var(--glow, var(--glow-accent));
     transform: translateY(-3px);
-}
-
-.quick-link:hover svg {
-    fill: var(--accent);
 }
 
 /* Divider label */
@@ -375,7 +375,7 @@ main {
     width: 40px;
     height: 40px;
     border-radius: 10px;
-    background: var(--bg-tertiary);
+    background: var(--glow);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -386,7 +386,7 @@ main {
 .card-icon svg {
     width: 18px;
     height: 18px;
-    fill: var(--text-secondary);
+    fill: var(--accent-card);
     transition: fill 0.2s;
 }
 .link-card:hover .card-icon svg { fill: #fff; }
