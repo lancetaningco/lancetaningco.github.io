@@ -18,6 +18,9 @@
     --grid-line: rgba(57, 255, 136, 0.08);
     --glow-1: rgba(57, 255, 136, 0.09);
     --glow-2: rgba(20, 184, 166, 0.10);
+    --led-color: var(--accent);
+    --led-idle: var(--border-color);
+    --led-glow: rgba(57, 255, 136, 0.25);
 }
 
 [data-theme="light"] {
@@ -34,9 +37,12 @@
     --shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.08);
     --shadow-lg: 0 20px 40px -12px rgba(15, 23, 42, 0.14);
     --glow-accent: 0 0 24px rgba(13, 156, 88, 0.15);
-    --grid-line: rgba(37, 99, 235, 0.06);
+    --grid-line: rgba(13, 156, 88, 0.14);
     --glow-1: rgba(13, 156, 88, 0.07);
     --glow-2: rgba(37, 99, 235, 0.10);
+    --led-color: var(--accent-2);
+    --led-idle: #a9b8cf;
+    --led-glow: rgba(37, 99, 235, 0.28);
 }
 
 * {
@@ -806,7 +812,7 @@ footer::before {
 }
 
 .led-btn:hover {
-    border-color: var(--accent);
+    border-color: var(--led-color);
 }
 
 .led-btn:active {
@@ -817,14 +823,14 @@ footer::before {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: var(--border-color);
+    background: var(--led-idle);
     box-shadow: none;
     transition: background 0.15s ease, box-shadow 0.15s ease;
 }
 
 .led-btn.lit .led-bulb {
-    background: var(--accent);
-    box-shadow: 0 0 10px 2px var(--accent), 0 0 22px 4px var(--glow-accent);
+    background: var(--led-color);
+    box-shadow: 0 0 10px 2px var(--led-color), 0 0 22px 4px var(--led-glow);
     animation: led-pulse 0.6s ease-out;
 }
 
