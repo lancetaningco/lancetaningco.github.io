@@ -322,9 +322,9 @@ main {
 
 /* Link cards (Contact page) */
 .link-cards {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
     gap: 16px;
-    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -441,6 +441,56 @@ main {
 .contact-email-text:hover {
     color: var(--accent);
     border-color: var(--accent);
+}
+
+.contact-email-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.copy-email-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.copy-email-btn:hover {
+    color: var(--accent);
+    border-color: var(--border-color);
+    background: var(--bg-secondary);
+}
+
+.copy-email-btn .icon-copy,
+.copy-email-btn .icon-check {
+    width: 14px;
+    height: 14px;
+}
+
+.copy-email-btn .icon-check {
+    display: none;
+}
+
+.copy-email-btn.copied {
+    color: #1fc557;
+    border-color: #1fc557;
+}
+
+.copy-email-btn.copied .icon-copy {
+    display: none;
+}
+
+.copy-email-btn.copied .icon-check {
+    display: block;
 }
 
 /* Buttons */
@@ -725,6 +775,64 @@ footer::before {
 .footer-text {
     font-family: var(--font-mono);
     font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+.site-counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.led-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.1s ease;
+}
+
+.led-btn:hover {
+    border-color: var(--accent);
+}
+
+.led-btn:active {
+    transform: scale(0.92);
+}
+
+.led-bulb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--border-color);
+    box-shadow: none;
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.led-btn.lit .led-bulb {
+    background: var(--accent);
+    box-shadow: 0 0 10px 2px var(--accent), 0 0 22px 4px var(--glow-accent);
+    animation: led-pulse 0.6s ease-out;
+}
+
+@keyframes led-pulse {
+    0% { transform: scale(0.6); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+
+.counter-text {
+    font-family: var(--font-mono);
+    font-size: 11px;
     letter-spacing: 0.05em;
     color: var(--text-secondary);
 }

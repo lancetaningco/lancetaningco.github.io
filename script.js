@@ -68,6 +68,94 @@ if (pages.length > 1) {
 
 /*
 ========================================
+COPY EMAIL - copies the contact email to the clipboard and briefly shows a
+checkmark on the button as confirmation.
+========================================
+*/
+const copyEmailBtn = document.querySelector('.copy-email-btn');
+
+if (copyEmailBtn) {
+    copyEmailBtn.addEventListener('click', async () => {
+        const email = copyEmailBtn.getAttribute('data-email');
+        try {
+            await navigator.clipboard.writeText(email);
+        } catch (err) {
+            return;
+        }
+
+        copyEmailBtn.classList.add('copied');
+        copyEmailBtn.setAttribute('title', 'Copied!');
+        clearTimeout(copyEmailBtn._copyTimeout);
+        copyEmailBtn._copyTimeout = setTimeout(() => {
+            copyEmailBtn.classList.remove('copied');
+            copyEmailBtn.setAttribute('title', 'Copy email address');
+        }, 1500);
+    });
+}
+
+/*
+========================================
+SITE COUNTER - LED button in the footer that logs a global click count, plus
+a once-per-session visit count. Backed by Abacus, a free no-auth counting API.
+Fails silently (shows "--") if the API is unreachable, so it never blocks the
+rest of the page.
+========================================
+*/
+const COUNTER_NAMESPACE = 'lancetaningco-github-io';
+const COUNTER_API = 'https://abacus.jasoncameron.dev';
+
+async function hitCounter(key) {
+    const res = await fetch(`${COUNTER_API}/hit/${COUNTER_NAMESPACE}/${key}`);
+    if (!res.ok) throw new Error('counter hit failed');
+    const data = await res.json();
+    return data.value;
+}
+
+async function readCounter(key) {
+    const res = await fetch(`${COUNTER_API}/get/${COUNTER_NAMESPACE}/${key}`);
+    if (res.status === 404) return 0; // key hasn't been hit yet
+    if (!res.ok) throw new Error('counter read failed');
+    const data = await res.json();
+    return data.value;
+}
+
+const visitCountEl = document.getElementById('visit-count');
+if (visitCountEl) {
+    const visitPromise = sessionStorage.getItem('siteVisitCounted')
+        ? readCounter('site-visits')
+        : hitCounter('site-visits').then(value => {
+            sessionStorage.setItem('siteVisitCounted', '1');
+            return value;
+        });
+
+    visitPromise
+        .then(value => { visitCountEl.textContent = value; })
+        .catch(() => { visitCountEl.textContent = '--'; });
+}
+
+const ledBtn = document.getElementById('led-btn');
+const ledCountEl = document.getElementById('led-count');
+if (ledBtn && ledCountEl) {
+    readCounter('led-clicks')
+        .then(value => { ledCountEl.textContent = value; })
+        .catch(() => { ledCountEl.textContent = '--'; });
+
+    let litTimeout;
+    ledBtn.addEventListener('click', () => {
+        clearTimeout(litTimeout);
+        ledBtn.classList.remove('lit');
+        void ledBtn.offsetWidth;
+        ledBtn.classList.add('lit');
+        litTimeout = setTimeout(() => ledBtn.classList.remove('lit'), 1200);
+
+        hitCounter('led-clicks')
+            .then(value => { ledCountEl.textContent = value; })
+            .catch(() => {});
+    });
+}
+
+/*
+========================================
 PROJECT DATA - the single source of truth for every project card, on both
 index.html's "Featured Projects" preview and the full projects.html grid.
 
