@@ -739,6 +739,10 @@ main {
     color: var(--text-secondary);
 }
 
+.about-body {
+    color: var(--text-primary);
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
