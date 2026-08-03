@@ -190,13 +190,12 @@ const PROJECTS = [
 function projectCard(project, index) {
     return `
         <div class="project-card">
-            ${project.inProgress ? '<span class="corner-status" title="In progress"><span class="status-dot"></span></span>' : ''}
+            ${project.inProgress ? '<span class="corner-status" title="In progress"><span class="status-dot"></span>In Progress</span>' : ''}
             <div class="project-content">
                 <span class="project-index">${String(index + 1).padStart(2, '0')} /</span>
                 <h3 class="project-title">${project.title}</h3>
                 <p class="project-description">${project.description}</p>
                 <div class="project-tags">
-                    ${project.inProgress ? '<span class="tag tag-in-progress">In Progress</span>' : ''}
                     ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
                 <a href="${project.link}" target="_blank" rel="noopener" class="project-link">
