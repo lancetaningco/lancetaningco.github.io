@@ -168,21 +168,22 @@ const PROJECTS = [
         title: "Radar Obstacle Detection System",
         description: "An Arduino-driven ultrasonic radar that sweeps an HC-SR04 sensor across 180° with a servo, streaming angle/distance readings to a Python + OpenCV pipeline that renders a live sweeping radar display — range rings, a rotating sweep arm, color-coded proximity tiers, and a fading phosphor-trail effect modeled after classic radar CRTs.",
         tags: ["Arduino", "Python", "OpenCV", "HC-SR04 Sensor"],
-        link: "https://github.com/lancetaningco/radar-obstacle-detection"
-    },
-    {
-        title: "I2C RTC & Thermometer Interface",
-        description: "Interfaced a PIC18F4620 microcontroller with a DS3231 real-time clock and a DS1621 digital thermometer over a bit-banged (software) I2C bus, writing the driver functions to initialize each device and read/write their registers over SCL/SDA. Live time, date, and temperature readings streamed to TeraTerm once per second, with a remote-control button wired in to reset the RTC on demand. Verified every transaction with a logic analyzer running I2C protocol decoding, confirming an ACK at the correct device address (0x48) and a NAK when addressing the wrong one — a hands-on look at how I2C addressing and acknowledgment work at the bit level.",
-        tags: ["I2C", "PIC18F4620", "C", "MPLAB"],
-        link: "https://github.com/lancetaningco"
+        link: "https://github.com/lancetaningco/radar-obstacle-detection",
+        inProgress: true
     },
     {
         title: "RF Direction-Finding for UAV Search & Rescue",
         description: "Selected to configure antenna arrays and KrakenSDR hardware for an RF direction-finding system as part of the Northrop Grumman Collaboration Project (NGCP), supporting a triangulation pipeline that will localize survivors for autonomous UAV search-and-rescue missions.",
         tags: ["KrakenSDR", "Antenna Arrays", "RF Engineering", "UAV"],
         link: "https://www.linkedin.com/company/northrop-grumman-collaboration-project/posts/?feedView=all"
+    },
+    {
+        title: "I2C RTC & Thermometer Interface",
+        description: "Interfaced a PIC18F4620 microcontroller with a DS3231 real-time clock and a DS1621 digital thermometer over a bit-banged (software) I2C bus, writing the driver functions to initialize each device and read/write their registers over SCL/SDA. Live time, date, and temperature readings streamed to TeraTerm once per second, with a remote-control button wired in to reset the RTC on demand. Verified every transaction with a logic analyzer running I2C protocol decoding, confirming an ACK at the correct device address (0x48) and a NAK when addressing the wrong one — a hands-on look at how I2C addressing and acknowledgment work at the bit level.",
+        tags: ["I2C", "PIC18F4620", "C", "MPLAB"],
+        link: "https://github.com/lancetaningco"
     }
-    // ADD MORE PROJECTS HERE — same shape: { title, description, tags: [...], link }
+    // ADD MORE PROJECTS HERE — same shape: { title, description, tags: [...], link, inProgress (optional) }
 ];
 
 function projectCard(project, index) {
@@ -193,6 +194,7 @@ function projectCard(project, index) {
                 <h3 class="project-title">${project.title}</h3>
                 <p class="project-description">${project.description}</p>
                 <div class="project-tags">
+                    ${project.inProgress ? '<span class="tag tag-in-progress"><span class="status-dot"></span>In Progress</span>' : ''}
                     ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
                 <a href="${project.link}" target="_blank" rel="noopener" class="project-link">
