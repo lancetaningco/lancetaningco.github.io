@@ -182,7 +182,7 @@ const PROJECTS = [
         title: "I2C RTC & Thermometer Interface",
         description: "Interfaced a PIC18F4620 microcontroller with a DS3231 real-time clock and a DS1621 digital thermometer over a bit-banged (software) I2C bus, writing the driver functions to initialize each device and read/write their registers over SCL/SDA. Live time, date, and temperature readings streamed to TeraTerm once per second, with a remote-control button wired in to reset the RTC on demand. Verified every transaction with a logic analyzer running I2C protocol decoding, confirming an ACK at the correct device address (0x48) and a NAK when addressing the wrong one — a hands-on look at how I2C addressing and acknowledgment work at the bit level.",
         tags: ["I2C", "PIC18F4620", "C", "MPLAB"],
-        link: "https://github.com/lancetaningco"
+        link: "https://youtube.com/shorts/ut9pnxj231E?feature=share"
     }
     // ADD MORE PROJECTS HERE — same shape: { title, description, tags: [...], link, inProgress (optional) }
 ];
