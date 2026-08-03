@@ -175,7 +175,8 @@ const PROJECTS = [
         title: "RF Direction-Finding for UAV Search & Rescue",
         description: "Selected to configure antenna arrays and KrakenSDR hardware for an RF direction-finding system as part of the Northrop Grumman Collaboration Project (NGCP), supporting a triangulation pipeline that will localize survivors for autonomous UAV search-and-rescue missions.",
         tags: ["KrakenSDR", "Antenna Arrays", "RF Engineering", "UAV"],
-        link: "https://www.linkedin.com/company/northrop-grumman-collaboration-project/posts/?feedView=all"
+        link: "https://www.linkedin.com/company/northrop-grumman-collaboration-project/posts/?feedView=all",
+        inProgress: true
     },
     {
         title: "I2C RTC & Thermometer Interface",
@@ -189,12 +190,13 @@ const PROJECTS = [
 function projectCard(project, index) {
     return `
         <div class="project-card">
+            ${project.inProgress ? '<span class="corner-status" title="In progress"><span class="status-dot"></span></span>' : ''}
             <div class="project-content">
                 <span class="project-index">${String(index + 1).padStart(2, '0')} /</span>
                 <h3 class="project-title">${project.title}</h3>
                 <p class="project-description">${project.description}</p>
                 <div class="project-tags">
-                    ${project.inProgress ? '<span class="tag tag-in-progress"><span class="status-dot"></span>In Progress</span>' : ''}
+                    ${project.inProgress ? '<span class="tag tag-in-progress">In Progress</span>' : ''}
                     ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
                 <a href="${project.link}" target="_blank" rel="noopener" class="project-link">

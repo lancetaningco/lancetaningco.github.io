@@ -667,16 +667,21 @@ main {
 }
 
 .tag-in-progress {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
     border-color: #e8a23d;
     color: #e8a23d;
 }
 
+.corner-status {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    z-index: 1;
+}
+
 .status-dot {
-    width: 6px;
-    height: 6px;
+    display: block;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: #e8a23d;
     box-shadow: 0 0 6px 1px rgba(232, 162, 61, 0.8);
