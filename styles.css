@@ -19,7 +19,8 @@
     --glow-1: rgba(57, 255, 136, 0.09);
     --glow-2: rgba(20, 184, 166, 0.10);
     --led-color: var(--accent);
-    --led-idle: var(--border-color);
+    --led-idle: var(--accent);
+    --led-idle-glow: rgba(57, 255, 136, 0.35);
     --led-glow: rgba(57, 255, 136, 0.25);
 }
 
@@ -41,7 +42,8 @@
     --glow-1: rgba(13, 156, 88, 0.07);
     --glow-2: rgba(37, 99, 235, 0.10);
     --led-color: var(--accent-2);
-    --led-idle: #a9b8cf;
+    --led-idle: var(--accent-2);
+    --led-idle-glow: rgba(37, 99, 235, 0.3);
     --led-glow: rgba(37, 99, 235, 0.28);
 }
 
@@ -805,7 +807,7 @@ footer::before {
     height: 40px;
     padding: 0;
     background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--led-color);
     border-radius: 50%;
     cursor: pointer;
     transition: border-color 0.2s ease, transform 0.1s ease;
@@ -813,6 +815,7 @@ footer::before {
 
 .led-btn:hover {
     border-color: var(--led-color);
+    transform: scale(1.06);
 }
 
 .led-btn:active {
@@ -824,7 +827,7 @@ footer::before {
     height: 12px;
     border-radius: 50%;
     background: var(--led-idle);
-    box-shadow: none;
+    box-shadow: 0 0 8px 1px var(--led-idle-glow);
     transition: background 0.15s ease, box-shadow 0.15s ease;
 }
 
