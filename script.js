@@ -180,7 +180,7 @@ const PROJECTS = [
         title: "RF Direction-Finding for UAV Search & Rescue",
         description: "Selected to configure antenna arrays and KrakenSDR hardware for an RF direction-finding system as part of the Northrop Grumman Collaboration Project (NGCP), supporting a triangulation pipeline that will localize survivors for autonomous UAV search-and-rescue missions.",
         tags: ["KrakenSDR", "Antenna Arrays", "RF Engineering", "UAV"],
-        link: "https://github.com/lancetaningco"
+        link: "https://www.linkedin.com/company/northrop-grumman-collaboration-project/posts/?feedView=all"
     }
     // ADD MORE PROJECTS HERE — same shape: { title, description, tags: [...], link }
 ];
