@@ -180,7 +180,7 @@ const PROJECTS = [
     },
     {
         title: "I2C RTC & Thermometer Interface",
-        description: "Programmed a PIC18F4620 microcontroller to talk to two small chips — a DS3231 real-time clock and a DS1621 digital thermometer — over I2C, a common two-wire connection used to link chips on a circuit board. The setup streamed live time, date, and temperature readings to a computer via TeraTerm once per second, with a button that resets the clock on demand. I also used a logic analyzer (a tool that reads electrical signals) to double-check the chips were actually talking to each other correctly.",
+        description: "Programmed a PIC18F4620 microcontroller to talk to two small chips, a DS3231 real-time clock and a DS1621 digital thermometer over I2C, a common two-wire connection used to link chips on a circuit board. The setup streamed live time, date, and temperature readings to a computer via TeraTerm once per second, with a button that resets the clock on demand. I also used a logic analyzer (a tool that reads electrical signals) to double-check the chips were actually talking to each other correctly.",
         tags: ["I2C", "PIC18F4620", "C", "MPLAB"],
         link: "https://youtube.com/shorts/ut9pnxj231E?feature=share"
     }
