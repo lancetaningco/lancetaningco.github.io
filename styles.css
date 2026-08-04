@@ -784,7 +784,7 @@ main {
 }
 
 .about-body {
-    color: var(--text-primary);
+    color: var(--text-secondary);
 }
 
 .skills-grid {
