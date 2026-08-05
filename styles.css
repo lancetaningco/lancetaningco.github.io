@@ -757,6 +757,7 @@ main {
 /* About Page */
 .about-content {
     max-width: 760px;
+    margin: 0 auto;
 }
 .about-intro {
     font-size: 19px;
