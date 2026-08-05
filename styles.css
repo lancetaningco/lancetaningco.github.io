@@ -725,6 +725,12 @@ main {
     box-shadow: var(--glow-accent);
 }
 
+.project-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 /* Page Header */
 .page-header {
     display: flex;

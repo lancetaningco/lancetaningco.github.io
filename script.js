@@ -182,10 +182,28 @@ const PROJECTS = [
         title: "I2C RTC & Thermometer Interface",
         description: "Programmed a PIC18F4620 microcontroller to talk to two small chips, a DS3231 real-time clock and a DS1621 digital thermometer over I2C, a common two-wire connection used to link chips on a circuit board. The setup streamed live time, date, and temperature readings to a computer via TeraTerm once per second, with a button that resets the clock on demand. I also used a logic analyzer (a tool that reads electrical signals) to double-check the chips were actually talking to each other correctly.",
         tags: ["I2C", "PIC18F4620", "C", "MPLAB"],
-        link: "https://youtube.com/shorts/ut9pnxj231E?feature=share"
+        links: [
+            { label: "View GitHub Repo", url: "https://github.com/lancetaningco/i2c-thermometer-interface" },
+            { label: "Demo Video", url: "https://youtube.com/shorts/ut9pnxj231E?feature=share" }
+        ]
     }
     // ADD MORE PROJECTS HERE — same shape: { title, description, tags: [...], link, inProgress (optional) }
 ];
+
+function projectLinkIcon() {
+    return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>`;
+}
+
+function projectLink(label, url) {
+    return `<a href="${url}" target="_blank" rel="noopener" class="project-link">
+                    ${label}
+                    ${projectLinkIcon()}
+                </a>`;
+}
 
 function projectCard(project, index) {
     return `
@@ -198,14 +216,9 @@ function projectCard(project, index) {
                 <div class="project-tags">
                     ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
-                <a href="${project.link}" target="_blank" rel="noopener" class="project-link">
-                    View Project
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                </a>
+                ${project.links
+                    ? `<div class="project-links">${project.links.map(l => projectLink(l.label, l.url)).join('')}</div>`
+                    : projectLink('View Project', project.link)}
             </div>
         </div>
     `;
