@@ -763,6 +763,14 @@ main {
     margin-bottom: 40px;
 }
 
+.about-me-section {
+    text-align: center;
+}
+
+.about-me-section .about-intro {
+    text-align: left;
+}
+
 .about-content h2 {
     font-family: var(--font-display);
     font-size: 22px;
@@ -791,6 +799,14 @@ main {
 
 .about-body {
     color: var(--text-secondary);
+}
+
+.about-bullets {
+    list-style: disc;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 .skills-grid {
